@@ -1219,8 +1219,7 @@ b {
 <script id="jsbin-javascript">
 /* --- WELCOME MESSAGE --- */
 
-window.onload = function() {
-    var day = '';
+var day = '';
     switch (new Date().getDay()) {
         case 0:
             day = 'vasárnap';
@@ -1244,9 +1243,9 @@ window.onload = function() {
             day = 'szombat';
     }
 
-    var hour = new Date().getHours();
+var hour = new Date().getHours();
 
-    var greetings = '';
+var greetings = '';
         if (hour <= 11) {
             greetings = 'Kellemes ' + day + ' délelőttöt!';
         } else if (hour <= 17) {
@@ -1255,19 +1254,18 @@ window.onload = function() {
             greetings = 'Kellemes ' + day + ' estét!';
         }
 
-    var welcome = greetings + ' Hogy szólíthatlak?';
+var welcome = greetings + ' Hogy szólíthatlak?';
 
-    var guest = prompt(welcome);
+var guest = prompt(welcome);
 
     if (guest === '' || guest === null) {
         guest = 'Vendégünk';
     }
 
-    document.getElementById('welcomeMessage').innerHTML = 'Kedves ' + guest + '!';
+document.getElementById('welcomeMessage').innerHTML = 'Kedves ' + guest + '!';
 
-    document.getElementById('gameEndMessage').innerHTML = 'Kedves ' + guest + '!';
+document.getElementById('gameEndMessage').innerHTML = 'Kedves ' + guest + '!';
 
-}
 
 
 /* --- NAV BUTTONS --- */
