@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by pasztortamas0602 (http://jsbin.com/toxacor/74/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="HU">
+
+<head>
+  <meta name="description" content="Réka és Imre esküvői honlapja">
+  <meta name="keywords" content="Molnár, Imre, Erdős, Réka, esküvő, házasság">
+  <meta name="author" content="Tusike">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Infant:500%7CGreat+Vibes" rel="stylesheet">
+  <title>Réka és Imi</title>
+<style id="jsbin-css">
+/* --- GENERAL CSS --- */
+
+/* CSS reset */
+html, body, div, span, iframe,
+h1, h2, h3, h4, h5, h6, hr, p,
+a, em, img, q, strong, b, i, ol, ul, li,
+button, table, caption, tr, th, td,
+article, figure, figcaption, footer, header,
+menu, nav, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, figcaption, figure,
+footer, header, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+q {
+	quotes: none;
+}
+
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* General styling */
+
+* {
+  box-sizing: border-box;
+  font-family: 'Great Vibes', cursive;
+  font-family: 'Cormorant Infant', serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+
+body {
+  background-image: url('https://i.imgur.com/3I2OODU.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+/* --- POSITIONING WITH FLEXBOX --- */
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+main {
+  background-color: rgba(246,241,222,0.8);
+}
+
+header {
+  flex: 100%;
+}
+
+nav {
+  flex: 25%;
+}
+
+main {
+  flex: 75%;
+}
+
+footer {
+  flex: 100%;
+}
+
+article {
+  border: 2px solid rgb(127,23,52);
+  border-left: none;
+  height: 550px;
+}
+
+.scheduleTime {
+  float: left;
+  width: 20%;
+  text-align: center;
+}
+
+.scheduleTheme, .scheduleLocation {
+  margin-left: 20%;
+  text-align: left;
+}
+
+.scheduleTheme {
+  padding-bottom: 1rem;
+}
+
+.scheduleLocation {
+  padding-left: 1rem;
+}
+
+.scheduleDescription {
+  margin-left: 20%;
+  padding: 1rem;
+  text-align: justify;
+}
+
+q {
+  display: block;
+  padding-top: 0.25rem;
+  text-align: center;
+}
+
+#locationDescription {
+  float: left;
+  width: 60%;
+}
+
+#locationImage {
+  width: 100%;
+}
+
+#locationContent {
+  float: left;
+  width: 40%;
+}
+
+#countDownTable {
+  width: 50%;
+  margin-left: 25%;
+}
+
+#countDownFinished iframe {
+	left: 20%;
+	width: 60%;
+}
+
+#contactSection {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.contactUs {
+  float: left;
+  width: 50%;
+}
+
+.contactUs {
+  border-radius: 0 0 0 2rem;
+}
+
+.contactUs:last-child {
+  border-radius: 0 0 2rem 0;
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 650px) {
+  .flex {
+    flex: 100%;
+    max-width: 100%;
+  }
+  html {
+    font-size: 11px;
+  }
+  article {
+    border: 2px solid rgb(127,23,52);
+    border-top: none;
+    height: auto;
+  }
+  .scheduleTime {
+    width: 100%;
+  }
+  .scheduleTheme, .scheduleLocation {
+    margin-left: 0;
+    text-align: center;
+  }
+  .scheduleTheme {
+    padding-bottom: 0;
+  }
+  .scheduleLocation {
+    padding-left: 0;
+  }
+  .scheduleDescription {
+    width: 90%;
+    text-align: justify;
+    margin: 0 auto;
+  }
+  #locationDescription {
+    float: none;
+    width: 100%;
+  }
+  #locationContent {
+    float: none;
+    width: 100%;
+  }
+  #countDownTable {
+    width: 90%;
+    margin: 0 auto;
+  }
+  #countDownFinished iframe {
+  	left: 5%;
+  	width: 90%;
+  }
+  #contactSection {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .contactUs {
+    width: 100%;
+    margin: 0px auto;
+  }
+  .contactUs {
+    border-radius: 0 0 0 0;
+  }
+  .contactUs:last-child {
+    border-radius: 0 0 2rem 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+/* --- HEADER STYLING --- */
+
+header {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+h1 {
+  white-space: nowrap;
+  font-family: 'Great Vibes', cursive;
+  font-size: 6rem;
+  color: rgb(192,151,65);
+  text-shadow: 1px 1px rgb(246,241,222);
+}
+
+span {
+  font-size: 7.5rem;
+  color: rgb(127,23,52);
+  text-shadow: 1px 1px rgb(246,241,222);
+}
+
+hr {
+  margin: 0 auto;
+  width: 70%;
+  height: 3px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));;
+}
+
+header p {
+  padding: 1rem 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(127,23,52);
+  text-shadow: 1px 1px rgb(246,241,222);
+}
+
+#easterEgg {
+  position: fixed;
+  top: 10%;
+  left: 5%;
+  background-color: rgba(246,241,222,0.8);
+  cursor: pointer;
+  width: 3px;
+  height: 3px;
+}
+
+
+
+/* --- NAVIGATION BAR STYLING --- */
+
+nav {
+  border: 2px solid rgb(127,23,52);
+}
+
+.navButton, .navButtonActive {
+  width: 100%;
+  height: 14.29%;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navButton {
+  background-color: rgba(246,241,222,0.8);
+  color: rgb(127,23,52);
+}
+
+.navButtonActive {
+  background-color: rgb(127,23,52);
+  color: rgb(246,241,222);
+}
+
+button:hover, button:active, button:visited, button:link {
+  background-color: rgb(127,23,52);
+  color: rgb(246,241,222);
+}
+
+button:disabled {
+  color: rgb(120,120,120);
+  cursor: not-allowed;
+}
+
+
+
+/* --- CONTENT STYLING --- */
+
+/* GENERAL */
+
+article {
+  display: none;
+}
+
+#menu1 {
+  display: block;
+}
+
+/* MAIN PAGE */
+#menu1 h2 {
+  padding: 2rem 0 0.5rem 0;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: rgb(192,151,65);
+}
+
+#menu1 p {
+  width: 80%;
+  margin: 0 auto;
+  text-align: justify;
+  font-size: 1.4rem;
+  color: rgb(127,23,52);
+}
+
+#menu1 img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+/* SCHEDULE */
+
+#scheduleHeader {
+  padding-bottom: 3rem;
+}
+
+.scheduleButton {
+  width: 50%;
+  float: left;
+  border-bottom: 1px solid rgb(127,23,52);
+  background-color: rgb(246,241,222);
+  padding: 0.5rem 0;
+  font-size: 1.25rem;
+  color: rgb(127,23,52);
+  font-weight: bold;
+}
+
+#schedule2, #schedule3 {
+  display: none;
+}
+
+.scheduleTime, .scheduleTheme {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.75rem;
+  color: rgb(192,151,65);
+}
+
+.scheduleLocation, .scheduleDescription {
+  color: rgb(127,23,52);
+}
+
+.scheduleLocation {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.scheduleDescription {
+  font-size: 1.15rem;
+  line-height: 1.25rem;
+}
+
+q {
+  color: rgb(192,151,65);
+}
+
+b {
+  font-weight: bold;
+}
+
+
+
+/* LOCATION */
+
+.locM {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.locD {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  width: 16.66667%;
+  float: left;
+}
+
+.locD img {
+  display: block;
+  width: 100%;
+  max-width: 75px;
+  margin: 0px auto;
+}
+
+.locD img:hover {
+  border: 2px solid rgb(127,23,52);
+  cursor: pointer;
+}
+
+#location {
+  padding: 1rem 0;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: rgb(192,151,65);
+}
+
+#locationDescription {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#locationImage, #locationAddress {
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#locationAddress {
+  display: inline-block;
+  padding: 1rem 0;
+  font-size: 1.25rem;
+}
+
+#locationAddress:link, #locationAddress:visited {
+  text-decoration: none;
+  background-color: rgb(127,23,52);
+  color: rgb(246,241,222);
+}
+
+#locationAddress:hover, #locationAddress:active {
+  background-color: rgb(192,151,65);
+  color: rgb(246,241,222);
+}
+
+#locationContent {
+  padding: 1.5rem;;
+  text-align: justify;
+  font-size: 1.15rem;
+  line-height: 1.25rem;
+  color: rgb(127,23,52);
+}
+
+
+
+/* FOOD */
+
+#menu4 {
+  background-image: url('https://i.imgur.com/f1mVMKG.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#menu4 h3 {
+  padding: 1rem 0 0.15rem 0;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: rgb(192,151,65);
+}
+
+#menu4 li {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.25rem;
+  color: rgb(127,23,52);
+}
+
+
+/* SEATING */
+
+
+
+/* ROOMS */
+
+
+
+/* EXTRA */
+
+#startScreen h3 {
+  padding: 5rem 0 5rem 0;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: rgb(192,151,65);
+}
+
+#startScreen p {
+  cursor: pointer;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 10rem;
+  padding: 2rem 1rem 2rem 1rem;
+  background-color: rgb(127,23,52);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  border: 2px solid rgb(246,241,222);
+  border-radius: 10px;
+  color: rgb(246,241,222);
+}
+
+#startScreen p:hover {
+  background-color: rgb(192,151,65);
+}
+
+#gameScreen {
+  display: none;
+}
+
+#question {
+  padding: 1.5rem 0 0 0;
+  text-align: center;
+  color: rgb(127,23,52);
+  font-size: 1.5rem;
+}
+
+#answersSection {
+  width: 60%;
+  float: left;
+  padding: 2rem 0rem 4rem 0;
+}
+
+.answers {
+  width: 50%;
+  padding-left: 1rem;
+  float: left;
+}
+
+.answers img {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.answers button {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1rem 0;
+  font-size: 1.25rem;
+}
+
+
+.answers button, #nextQuestion {
+  cursor: pointer;
+  background-color: rgb(127,23,52);
+  color: rgb(246,241,222);
+}
+
+.answers button:hover, #nextQuestion:hover {
+  background-color: rgb(192,151,65);
+  color: rgb(246,241,222);
+}
+
+.answers button:disabled, #nextQuestion:disabled {
+  background-color: rgb(127,23,52);
+  color: rgb(120,120,120);
+  cursor: not-allowed;
+}
+
+#rightAnswer {
+  padding-bottom: 0.5rem;
+}
+
+#rightAnswer, #result {
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: rgb(192,151,65);
+}
+
+#hint {
+  padding: 0.5rem;
+  text-align: justify;
+  font-size: 1.15rem;
+  color: rgb(127,23,52);
+}
+
+#nextQuestion {
+  display: block;
+  width: 60%;
+  margin: 1rem auto;
+  border-radius: 5px;
+  padding: 0.5rem 0;
+  font-size: 1.15rem;
+}
+
+#solutionSection {
+  width: 40%;
+  float:left;
+  padding: 2rem 0.5rem;
+}
+
+#endScreen {
+  display: none;
+}
+
+#gameEndMessage {
+  padding: 3rem 0 2rem 0;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: rgb(192,151,65);
+}
+
+#points {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(127,23,52);
+}
+
+#advise {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: rgb(127,23,52);
+}
+
+#reward {
+  cursor: pointer;
+  display: block;
+  width: 60%;
+  margin: 1rem auto;
+  border-radius: 5px;
+  background-color: rgb(192,151,65);
+  color: rgb(246,241,222);
+  padding: 0.5rem 0;
+  font-size: 1.15rem;
+  color: rgb(246,241,222);
+}
+
+#reward:hover {
+  background-color: rgb(127,23,52);
+  color: rgb(246,241,222);
+}
+
+#reward:disabled {
+  background-color: rgb(192,151,65);
+  color: rgb(120,120,120);
+  cursor: not-allowed;
+}
+
+#newGame {
+  cursor: pointer;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 4rem;
+  margin-bottom: 10rem;
+  padding: 2rem 1rem 2rem 1rem;
+  background-color: rgb(127,23,52);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  border: 2px solid rgb(246,241,222);
+  border-radius: 10px;
+  color: rgb(246,241,222);
+}
+
+#newGame:hover {
+  background-color: rgb(192,151,65);
+  color: rgb(246,241,222);
+}
+
+#rewardScreen {
+  display: none;
+}
+
+#rewardHeader {
+  padding-bottom: 3rem;
+}
+
+.rewardButton {
+  width: 50%;
+  float: left;
+  border-bottom: 1px solid rgb(127,23,52);
+  background-color: rgb(246,241,222);
+  padding: 0.5rem 0;
+  font-size: 1.25rem;
+  color: rgb(127,23,52);
+  font-weight: bold;
+}
+
+#rewardContent {
+  width: 100%;
+}
+
+#rewardContent h4 {
+  padding: 0.5rem 0;
+  text-align: center;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.75rem;
+  color: rgb(192,151,65);
+}
+
+#rewardContent img {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#moveBack {
+  cursor: pointer;
+  display: block;
+  width: 60%;
+  margin: 1rem auto;
+  border-radius: 5px;
+  background-color: rgb(192,151,65);
+  color: rgb(246,241,222);
+  padding: 0.5rem 0;
+  font-size: 1.15rem;
+  color: rgb(246,241,222);
+}
+
+#moveBack:hover {
+  background-color: rgb(127,23,52);
+  color: rgb(246,241,222);
+}
+
+
+
+
+
+/* --- FOOTER STYLING --- */
+
+/* --- FOOTER STYLING: COUNTDOWN --- */
+
+#countDownSection {
+  margin: 2rem 0;
+}
+
+#countDownTable {
+  text-align: center;
+}
+
+.ticking {
+  width: 25%;
+  background-color: rgba(246,241,222,0.8);
+  padding: 0.75rem 0;
+  font-size: 2.25rem;
+  color: rgb(127,23,52);
+  font-weight: bold;
+}
+
+.ticking:first-child {
+  border-radius: 2rem 0 0 0;
+}
+
+.ticking:last-child {
+  border-radius: 0 2rem 0 0;
+}
+
+.unit {
+  background-color: rgb(127,23,52);
+  padding: 0.15rem 0;
+  font-size: 1.25rem;
+  color: rgb(240,236,223);
+}
+
+.text {
+  border-bottom: 2px solid rgb(127,23,52);
+  background-color: rgba(246,241,222,0.8);
+  font-size: 1.75rem;
+  font-family: 'Great Vibes', cursive;
+  color: rgb(192,151,65);
+}
+
+#countDownFinished {
+  display: none;
+  margin: 1rem 0;
+}
+
+#countDownFinished {
+	height: 0;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	position: relative;
+}
+
+#countDownFinished iframe {
+	position: absolute;
+	top: 0;
+	height: 100%;
+  border: 2px solid rgb(127,23,52);
+  box-shadow: 3px 3px 3px rgba(238,206,172,0.8);
+}
+
+
+
+/* --- FOOTER STYLING: CONTACT --- */
+
+#contact {
+  border-top: 2px solid rgb(127,23,52);
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: rgba(246,241,222,0.8);
+  padding: 0.25rem 0;
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Great Vibes', cursive;
+  color: rgb(192,151,65);
+}
+
+.contactUs {
+  background-color: rgba(246,241,222,0.8);
+}
+
+.contactP {
+  background-color: rgb(127,23,52);
+  padding: 0.25rem 0;
+  font-size: 1.5rem;
+  color: rgb(240,236,223);
+}
+
+.contactI {
+  width: 20%;
+  padding: 0.25rem 0;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  color: rgb(192,151,65);
+  text-shadow: 1px 1px rgb(246,241,222);
+}
+
+.contactD {
+  width: 80%;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 1.25rem;
+  color: rgb(127,23,52);
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body id="weddingSite">
+  <div class="flex-container">
+
+    <header class="flex">
+      <h1><span>R</span>éka &#38; <span>I</span>mi</h1>
+      <hr>
+      <p>2018. augusztus 25.</p>
+      <hr>
+      <div id="easterEgg" onclick="easterEgg()" title="Ne nyomd meg!"></div>
+    </header>
+
+    <nav class="flex">
+      <button onclick="button1()" id="navB1" class="navButton">Főoldal</button>
+      <button onclick="button2()" id="navB2" class="navButton">Menetrend</button>
+      <button onclick="button3()" id="navB3" class="navButton">Helyszínek</button>
+      <button onclick="button4()" id="navB4" class="navButton">Menü</button>
+      <button onclick="button5()" id="navB5" class="navButton" disabled="disabled">Ültetés</button>
+      <button onclick="button6()" id="navB6" class="navButton" disabled="disabled">Szobabeosztás</button>
+      <button onclick="button7()" id="navB7" class="navButton">Extra</button>
+    </nav>
+
+    <main class="flex">
+      <article id="menu1" class="content">
+        <h2 id="welcomeMessage">Kedves Vendégünk!</h2>
+        <p>
+          Szeretettel köszöntünk esküvői oldalunkon. Szeretnénk tájékoztatni,
+          hogy az oldalon szereplő információk tájékoztató jellegűek&#9786;.
+        </p>
+        <img src="https://i.imgur.com/9W48UN0.png" alt="Rólunk (Gergő rajz)">
+      </article>
+
+      <article id="menu2" class="content">
+        <div id="scheduleHeader">
+          <button id="scheduleButtonOne" class="scheduleButton" onclick="scheduleBack()">Előző</button>
+          <button id="scheduleButtonTwo" class="scheduleButton" onclick="scheduleNext()">Következő</button>
+        </div>
+        <div id="schedule1">
+          <div>
+            <h2 class="scheduleTime">14:00</h2>
+            <h3 class="scheduleTheme">Vendégvárás, állófogadás és lánykikérés</h3>
+            <h4 class="scheduleLocation">Petőfi ház</h4>
+            <p class="scheduleDescription">
+              14 órára várunk mindenkit sok-sok szeretettel. Lehet számítani egy kis
+              svédasztalos ebédre, mindenki egyen annyit, amivel kibírja vacsoráig.
+              Mindenkit bátorítunk legalább egy bemelegítő ital elfogyasztására is.
+              Mielőtt csoportosan megindulunk a múzeumba (no nem pont kulturálódni,
+              hanem hogy összeadják az ifjú párt), lehet szurkolni a vőlegénynek,
+              hogy kiadják-e neki a menyasszonyt.
+            </p>
+          </div>
+          <div>
+            <h2 class="scheduleTime">16:00</h2>
+            <h3 class="scheduleTheme">Polgári szertartás</h3>
+            <h4 class="scheduleLocation">Múzeum kert (rossz idő esetén: Polgármesteri Hivatal)</h4>
+            <p class="scheduleDescription">
+              A polgári szertartás alatt lesz homokszórás, sírás-rívás és persze annál
+              több örömködés. Ha meg esik az eső, akkor hiszitek vagy sem, a program
+              ugyanez, csak éppen máshol. De szerencsére nem kell messzire menni, ugyanis
+              egymással szemben található a két épület.
+            </p>
+          </div>
+        </div>
+        <div id="schedule2">
+          <div>
+            <h2 class="scheduleTime">17:00</h2>
+            <h3 class="scheduleTheme">Templomi szertartás</h3>
+            <h4 class="scheduleLocation">Református Nagytemplom</h4>
+            <p class="scheduleDescription">
+              A polgári szertartás után a szintén nagyon közel található templomba sétálunk
+              át. A szertartás után a Fő téren a násznép kifejezheti jókívánságait az ifjú
+              párnak, az immár friss házas Molnáréknak. Viszont aki végzett, az semmiképpen
+              se szökjön el, mert szeretnénk csinálni pár csoportképet, na meg kijelölni a
+              jövőbeni házasulandókat (értsd: harisnyakötő és csokordobás).
+            </p>
+          </div>
+          <div>
+            <h2 class="scheduleTime">18:30</h2>
+            <h3 class="scheduleTheme">Ajándékozás majd koccintás</h3>
+            <h4 class="scheduleLocation">Petőfi-ház</h4>
+            <p class="scheduleDescription">
+              A gratulációk és csoportképkészítés után visszatérünk a Petőfi Házba egy közös
+              koccintásra. Aki szeretne kedveskedni a párnak, és személyesen szeretné átadni
+              ajándékát, annak itt lesz rá a remek alkalom. Természetesen mindennek örülünk,
+              de a következő versike segítségedre lehet:<br>
+              <q>
+                "Azt kérded, mit vegyél? Minek örülnénk?<br>
+                Megsúgjuk az álmunk, mely egy meghitt hajlék.<br>
+                Borítékba tedd hát, mit ajándékra szántál,<br>
+                Hogy neved rajta álljon, egy-egy sor téglán!<br>
+                S ha miénk lett már az a meghitt otthon,<br>
+                Szíves vendég leszel, ha arra viszen a sorsod."<br>
+              </q>
+            </p>
+          </div>
+        </div>
+        <div id="schedule3">
+          <div>
+            <h2 class="scheduleTime">18:45</h2>
+            <h3 class="scheduleTheme">Szünet</h3>
+            <h4 class="scheduleLocation">Hajdúböszörmény</h4>
+            <p class="scheduleDescription">
+              Vacsora előtt mindenkinek lehetősége lesz szusszanni egyet vagy haza ugrani
+              átöltözni (böszörményiek előnyben), viszont kérünk mindenkit, hogy a vacsorára
+              érjen vissza, lehetőleg éhesen, mert kaja lesz bőven.
+            </p>
+          </div>
+          <div>
+            <h2 class="scheduleTime">19:30</h2>
+            <h3 class="scheduleTheme">Vacsora (szünetben játék)</h3>
+            <h4 class="scheduleLocation">Petőfi-ház</h4>
+            <p class="scheduleDescription">
+              A vacsorát 19:30-ra tervezzük. Ha érdekel a menü, meglesheted a 'Menü' menüpont
+              alatt. Májgombócleves biztos, hogy lesz, mert Réka e nélkül nem volt hajlandó
+              lagzit csinálni. <b>Ha esetleg bármilyen ételallergiád van, kérjük, előre
+              jelezd!</b>
+            </p>
+          </div>
+          <div>
+            <h2 class="scheduleTime">00:00</h2>
+            <h3 class="scheduleTheme">Menyasszonytánc és torta</h3>
+            <h4 class="scheduleLocation">Petőfi-ház</h4>
+            <p class="scheduleDescription">
+              Éjfél körül érkezik a torta majd remélhetőleg minél többen megtáncoltatják a
+              menyasszonyt. Lehet rajta nevetni, mert igencsak botlábú, akinek még a kettőt
+              jobbra, kettőt balra is nehezére esik. Ezután pedig folytatódik a buli, amíg
+              bírjuk szusszal…
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article id="menu3" class="content">
+        <ul class="locM">
+          <li class="locD"><img id="loc0" src="https://i.imgur.com/W7ElmaL.png"
+                                alt="Helyszín 0"
+                                onclick="location0()">
+          </li>
+          <li class="locD"><img id="loc1" src="https://i.imgur.com/OdcFSON.png"
+                                alt="Helyszín 1"
+                                onclick="location1()">
+          </li>
+          <li class="locD"><img id="loc2" src="https://i.imgur.com/mWfZOu9.png"
+                                alt="Helyszín 2"
+                                onclick="location2()">
+          </li>
+          <li class="locD"><img id="loc3" src="https://i.imgur.com/P0HIxG7.png"
+                                alt="Helyszín 3"
+                                onclick="location3()">
+          </li>
+          <li class="locD"><img id="loc4" src="https://i.imgur.com/Rj6rT6i.png"
+                                alt="Helyszín 4"
+                                onclick="location4()">
+          </li>
+          <li class="locD"><img id="loc5" src="https://i.imgur.com/TNgYVZl.png"
+                                alt="Helyszín 5"
+                                onclick="location5()">
+          </li>
+        </ul>
+        <div id="locationDetails">
+          <h3 id="location">Hajdúböszörmény</h3>
+          <figure id="locationDescription">
+            <img id="locationImage"
+                 src ="https://i.imgur.com/Ht0BRLW.jpg"
+                 alt="Helyszín">
+            <figcaption>
+              <a id="locationAddress"
+                 href="https://www.google.com/maps/dir/Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9ny,+Pet%C5%91fi+S%C3%A1ndor+u.+15,+4220/Kossuth+Lajos+u.+1,+Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9ny,+4220/Bocskai+Istv%C3%A1n+t%C3%A9r+1,+Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9ny,+4220/D%C3%A9s%C3%A1ny+Istv%C3%A1n+u.+1,+Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9ny,+4220/@47.6710422,21.5059284,17z/data=!4m26!4m25!1m5!1m1!1s0x47476afb1ac1493d:0x66a5962e58538202!2m2!1d21.5099306!2d47.6732212!1m5!1m1!1s0x47476afac5ae5771:0x6449f0a457d09784!2m2!1d21.5074577!2d47.6725894!1m5!1m1!1s0x47476afac510b0d3:0xc14525cfb61ae1e4!2m2!1d21.5075099!2d47.6725651!1m5!1m1!1s0x47476ae45d818beb:0x7c56fbb84537b986!2m2!1d21.507527!2d47.6687722!3e2?hl=hu"
+                 target="_blank"
+                 title="Mutasd Google térképen">Hajdúböszörmény</a>
+            </figcaption>
+          </figure>
+          <p id="locationContent">
+            Hajdúböszörmény, a hajdúk fővárosa, háromszor akkora, mint Pilis. A város a mai napig őrzi
+            a középkori gyűrűs településszerkezetet, ami a gyakorlatban azt jelenti, hogy még véletlenül
+            sincs egy párhuzamos utcája. Ami a böszörményieknek nem jelent gondot, ám a „csak úgy
+            beházasulandóknak” igen csak megnehezíti a tájékozódást. Kárpótlásul azonban ott van nekik
+            a fürdő, a gyönyörű Főtér, a tengeri meg forgóföldek, az újabb és újabb eddig ismeretlen szavak,
+            és a lényeg: Imi!
+          </p>
+        </div>
+      </article>
+
+      <article id="menu4" class="content">
+        <h3>Svédasztalos vendégvárás</h3>
+        <ul>
+          <li>Szendvicsek</li>
+          <li>Svéd gomba-, görög-, burgonya- és franciasaláta</li>
+          <li>Kaszinótojás</li>
+          <li>Sonkatekercs</li>
+          <li>Fasírt, debreceni töltött karaj, hortobágyi húsos palacsinta</li>
+          <li>Sós sütemények</li>
+        </ul>
+       <h3>Vacsora</h3>
+        <ul>
+          <li>Tanyasi tyúkhúsleves csigatésztával és tyúkhúsleves májgombóccal</li>
+          <li>Hajdúsági töltött káposzta</li>
+          <li>Szürkemarhapörkölt</li>
+          <li>Vegyes sültes bőségtál:</li>
+          <li>
+            <ul>
+              <li>Sajttal töltött csirkemell filé</li>
+              <li>Rántott sertésszelet</li>
+              <li>Fűszeres vasalt csirkecomb</li>
+              <li>Mustáros flekken</li>
+              <li>Rántott gomba</li>
+              <li>Rántott sajt</li>
+              <li>Zöldséggel párolt rizs, steak burgonya, csemege uborka</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Éjféli menü</h3>
+        <ul>
+          <li class="foodDetails">Sült csirke salátával</li>
+        </ul>
+      </article>
+
+      <article id="menu5" class="content"><h2>Ültetés tartalom</h2></article>
+
+      <article id="menu6" class="content"><h2>Kolibeosztás tartalom</h2></article>
+
+      <article id="menu7" class="content">
+        <div id="startScreen">
+          <h3>Jól ismered a párt? Most tesztelheted.</h3>
+          <p onclick="startGame()">Teszt indítása</p>
+        </div>
+        <div id="gameScreen">
+          <p id="question"></p>
+          <div id="answersSection">
+            <div class="answers">
+              <img src="https://i.imgur.com/HT6wpuc.jpg" alt="Réka">
+              <button id="rekaButton" onclick="answerReka()">Réka</button>
+            </div>
+            <div class="answers">
+              <img src="https://i.imgur.com/17ATLxl.jpg" alt="Imi">
+              <button id="imiButton" onclick="answerImi()">Imi</button>
+            </div>
+          </div>
+          <div id="solutionSection">
+            <p id="rightAnswer">A helyes válasz:</p>
+            <p id="result"></p>
+            <p id="hint"></p>
+          </div>
+          <button id="nextQuestion" onclick="nextQuestion()" disabled="disabled">Következő kérdés</button>
+        </div>
+        <div id="endScreen">
+          <h4 id="gameEndMessage">Kedves vendégünk!</h4>
+          <p id="points"></p>
+          <p id="advise"></p>
+          <button id="reward" onclick="showReward()" disabled="disabled" title="Az elégséges szint 6 pont...">Jutalom</button>
+          <button id="newGame" onclick="moveToStartGame()">Új játék</button>
+        </div>
+        <div id="rewardScreen">
+          <div id="rewardHeader">
+            <button id="rewardButtonOne" class="rewardButton" onclick="rewardBack()">Előző</button>
+            <button id="rewardButtonTwo" class="rewardButton" onclick="rewardNext()">Következő</button>
+          </div>
+          <div id="rewardContent">
+            <h4>Köszönjük, hogy Veled ünnepelhetünk!</h4>
+            <img id="rewardImage" src="https://i.imgur.com/xHpaOxs.jpg" alt="Jutalomképek">
+          </div>
+          <button id="moveBack" onclick="moveToStartGame()">Vissza</button>
+        </div>
+      </article>
+    </main>
+
+
+    <footer class="flex">
+      <div id="countDownSection">
+        <table id="countDownTable">
+          <tr>
+            <th id="cdDays" class="ticking"></th>
+            <th id="cdHours" class="ticking"></th>
+            <th id="cdMinutes" class="ticking"></th>
+            <th id="cdSeconds" class="ticking"></th>
+          </tr>
+          <tr>
+            <td class="unit">nap</td>
+            <td class="unit">óra</td>
+            <td class="unit">perc</td>
+            <td class="unit">mp</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="text">...múlva találkozunk...</td>
+          </tr>
+        </table>
+      </div>
+      <figure id="countDownFinished">
+        <iframe id="startGandalf" width="854" height="480" src="https://www.youtube.com/embed/Sagg08DrO5U?autoplay=0"></iframe>
+      </figure>
+      <div id="contactSection">
+        <p id="contact">Kérdés esetén fordulj hozzánk bizalommal:</p>
+        <table class="contactUs">
+          <tr>
+            <th colspan="2" class="contactP">Menyasszony</th>
+          </tr>
+          <tr>
+            <td class="contactI"><i class="material-icons">phonelink_ring</i></td>
+            <td class="contactD">+36-70-933-6616</td>
+          </tr>
+          <tr>
+            <td class="contactI"><i class="material-icons">mail_outline</i></td>
+            <td class="contactD">reka.erdos@gmail.com</td>
+          </tr>
+        </table>
+        <table class="contactUs">
+          <tr class="contactP">
+            <th colspan="2" class="contactP">Vőlegény</th>
+          </tr>
+          <tr>
+            <td class="contactI"><i class="material-icons">phonelink_ring</i></td>
+            <td class="contactD">+36-70-442-7561</td>
+          </tr>
+          <tr>
+            <td class="contactI"><i class="material-icons">mail_outline</i></td>
+            <td class="contactD">ifjmolnarimre@gmail.com</td>
+          </tr>
+        </table>
+      </div>
+    </footer>
+
+  </div>
+<script id="jsbin-javascript">
+/* --- WELCOME MESSAGE --- */
+
+window.onload = function() {
+    var day = '';
+    switch (new Date().getDay()) {
+        case 0:
+            day = 'vasárnap';
+            break;
+        case 1:
+            day = 'hétfő';
+            break;
+        case 2:
+            day = 'kedd';
+            break;
+        case 3:
+            day = 'szerda';
+            break;
+        case 4:
+            day = 'csütörtök';
+            break;
+        case 5:
+            day = 'péntek';
+            break;
+        case 6:
+            day = 'szombat';
+    }
+
+    var hour = new Date().getHours();
+
+    var greetings = '';
+        if (hour <= 11) {
+            greetings = 'Kellemes ' + day + ' délelőttöt!';
+        } else if (hour <= 17) {
+            greetings = 'Kellemes ' + day + ' délutánt!';
+        } else {
+            greetings = 'Kellemes ' + day + ' estét!';
+        }
+
+    var welcome = greetings + ' Hogy szólíthatlak?';
+
+    var guest = prompt(welcome);
+
+    if (guest === '' || guest === null) {
+        guest = 'Vendégünk';
+    }
+
+    document.getElementById('welcomeMessage').innerHTML = 'Kedves ' + guest + '!';
+
+    document.getElementById('gameEndMessage').innerHTML = 'Kedves ' + guest + '!';
+
+}
+
+
+/* --- NAV BUTTONS --- */
+
+function buttonDefault() {
+    for (i = 0; i < 7; i++) {
+        var x = document.getElementsByClassName('content');
+        x[i].style.display = 'none';
+        var y = document.getElementsByTagName('button');
+        y[i].className = 'navButton';
+    }
+}
+
+function button1() {
+    buttonDefault();
+    document.getElementById('menu1').style.display = 'block';
+    document.getElementById('navB1').className = 'navButtonActive';
+}
+
+function button2() {
+    buttonDefault();
+    document.getElementById('menu2').style.display = 'block';
+    document.getElementById('navB2').className = 'navButtonActive';
+}
+
+function button3() {
+    buttonDefault();
+    document.getElementById('menu3').style.display = 'block';
+    document.getElementById('navB3').className = 'navButtonActive';
+}
+
+function button4() {
+    buttonDefault();
+    document.getElementById('menu4').style.display = 'block';
+    document.getElementById('navB4').className = 'navButtonActive';
+}
+
+function button5() {
+    buttonDefault();
+    document.getElementById('menu5').style.display = 'block';
+    document.getElementById('navB5').className = 'navButtonActive';
+}
+
+function button6() {
+    buttonDefault();
+    document.getElementById('menu6').style.display = 'block';
+    document.getElementById('navB6').className = 'navButtonActive';
+}
+
+function button7() {
+    buttonDefault();
+    document.getElementById('menu7').style.display = 'block';
+    document.getElementById('navB7').className = 'navButtonActive';
+}
+
+
+
+/* --- CONTENT DISPLAY --- */
+
+// EASTER EGG
+
+var easterEggCounter = 0;
+
+function easterEgg() {
+    if (easterEggCounter === 0) {
+        document.body.style.backgroundImage = "url('https://i.imgur.com/1PY5H6G.jpg')";
+        easterEggCounter = 1;
+    } else {
+        document.body.style.backgroundImage = "url('https://i.imgur.com/3I2OODU.jpg')";
+        easterEggCounter = 0;
+    }
+}
+
+
+
+// SCHEDULE
+
+function scheduleReset() {
+    for (var j = 1; j <= 3; j++) {
+        var scheduleJ = "schedule" + j;
+        document.getElementById(scheduleJ).style.display = "none";
+    }
+}
+
+var scheduleCounter = 1
+
+function scheduleNext() {
+    scheduleReset();
+    if (scheduleCounter <= 2) {
+        scheduleCounter++;
+        var scheduleN = "schedule" + scheduleCounter;
+        document.getElementById(scheduleN).style.display = "block";
+    } else {
+        scheduleCounter = 1;
+        var scheduleN1 = "schedule" + scheduleCounter;
+        document.getElementById(scheduleN1).style.display = "block";
+    }
+}
+
+function scheduleBack() {
+    scheduleReset();
+    if (scheduleCounter >= 2) {
+        scheduleCounter--;
+        var scheduleB = "schedule" + scheduleCounter;
+        document.getElementById(scheduleB).style.display = "block";
+    } else {
+        scheduleCounter = 3;
+        var scheduleB3 = "schedule" + scheduleCounter;
+        document.getElementById(scheduleB3).style.display = "block";
+    }
+}
+
+
+
+// LOCATION
+var locations = [
+    'Hajdúböszörmény',
+    'Petőfi Ház',
+    'Hajdúsági Múzeum',
+    'Bocskai téri Református Templom',
+    'Polgármesteri Hivatal',
+    'Hajdúböszörményi Kollégium'
+]
+
+var locationImage = [
+    'https://i.imgur.com/Ht0BRLW.jpg',
+    'https://i.imgur.com/qyUq1gN.jpg',
+    'https://i.imgur.com/tLRmTGm.jpg',
+    'https://i.imgur.com/Y5rM6ah.jpg',
+    'https://i.imgur.com/cK7eKAX.jpg',
+    'https://i.imgur.com/xBTJsCx.jpg'
+]
+
+var locationAddress = [
+    'Hajdúböszörmény',
+    '4220 Hajdúböszörmény, Petőfi Sándor utca 15.',
+    '4220 Hajdúböszörmény, Kossuth Lajos utca 1.',
+    '4220 Hajdúböszörmény, Bocskai tér. 1',
+    '4220 Hajdúböszörmény, Bocskai tér. 1',
+    '4220 Hajdúböszörmény, Désány István utca 1–9.'
+]
+
+var locationReference = [
+    'https://www.google.com/maps/dir/Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9n' +
+        'y,Pet%C5%91fi+S%C3%A1ndor+u.+15,+4220/Kossuth+Lajos+u.+1,+Hajd' +
+        '%C3%BAb%C3%B6sz%C3%B6rm%C3%A9ny,+4220/Bocskai+Istv%C3%A1n+t%C3' +
+        '%A9r+1,+Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9ny,+4220/D%C3%A9s%C3%' +
+        'A1ny+Istv%C3%A1n+u.+1,+Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9ny,+42' +
+        '20/@47.6710722,21.5057309,17z/data=!3m1!4b1!4m26!4m25!1m5!1m1!' +
+        '1s0x47476afb1ac1493d:0x66a5962e58538202!2m2!1d21.5099306!2d47.' +
+        '6732212!1m5!1m1!1s0x47476afac5ae5771:0x6449f0a457d09784!2m2!1d' +
+        '21.5074577!2d47.6725894!1m5!1m1!1s0x47476afac510b0d3:0xc14525c' +
+        'fb61ae1e4!2m2!1d21.5075099!2d47.6725651!1m5!1m1!1s0x47476ae45d' +
+        '818beb:0x7c56fbb84537b986!2m2!1d21.507527!2d47.6687722!3e2?hl=' +
+        'hu',
+    'https://www.google.hu/maps/place/Pet%C5%91fi+H%C3%A1z/@47.6732212,' +
+        '21.5011759,15z/data=!4m5!3m4!1s0x47476afb1ad0804b:0x45bf0e60dd' +
+        '5731be!8m2!3d47.6732212!4d21.5099306',
+    'https://www.google.hu/maps/place/Hajd%C3%BAs%C3%A1gi+M%C3%BAzeum/@' +
+        '47.672371,21.5053494,17z/data=!3m1!4b1!4m5!3m4!1s0x47476afad01' +
+        'f29e5:0xe4e6388a939cd8b!8m2!3d47.672371!4d21.5075381',
+    'https://www.google.hu/maps/place/Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9' +
+        'ny,+Bocskai+Istv%C3%A1n+t%C3%A9r+1,+4220/@47.6725651,21.505321' +
+        '2,17z/data=!3m1!4b1!4m5!3m4!1s0x47476afac510b0d3:0xc14525cfb61' +
+        'ae1e4!8m2!3d47.6725651!4d21.5075099',
+    'https://www.google.hu/maps/place/Polg%C3%A1rmesteri+hivatal/@47.67' +
+        '27929,21.5057803,17z/data=!3m1!4b1!4m5!3m4!1s0x47476afac659c3d' +
+        '7:0x4f4015a47ca47ef3!8m2!3d47.6727929!4d21.5079689',
+    'https://www.google.hu/maps/place/Hajd%C3%BAb%C3%B6sz%C3%B6rm%C3%A9' +
+        'ny,+D%C3%A9s%C3%A1ny+Istv%C3%A1n+u.+1,+4220/@47.6687722,21.505' +
+        '3383,17z/data=!3m1!4b1!4m5!3m4!1s0x47476ae45d818beb:0x7c56fbb8' +
+        '4537b986!8m2!3d47.6687722!4d21.507527'
+]
+
+var locationContent = [
+   'Hajdúböszörmény, a hajdúk fővárosa, háromszor akkora, mint Pilis. A' +
+        'város a mai napig őrzi a középkori gyűrűs településszerkezetet' +
+        ', ami a gyakorlatban azt jelenti, hogy még véletlenül sincs eg' +
+        'y párhuzamos utcája. Ami a böszörményieknek nem jelent gondot,' +
+        'ám a „csak úgy beházasulandóknak” igen csak megnehezíti a tájé' +
+        'kozódást. Kárpótlásul azonban ott van nekik a fürdő, a gyönyör' +
+        'ű Főtér, a tengeri meg forgóföldek, az újabb és újabb eddig is' +
+        'meretlen szavak, és a lényeg: Imi!',
+    'Itt kezdődik majd minden! 2 órára várunk Titeket egy állófogadásos' +
+        ' ebédre majd meglátjuk, hogy a legény elég meggyőzően kéri-e k' +
+        'i azt a lyányt. A szertartások után pedig ide térünk vissza, h' +
+        'ogy megvacsorázzunk és mulassunk, míg a zenekar húzza. Az este' +
+        ' jelmondata pedig, hogy „Igyál pálinkát!”, hiszen egy jó sztor' +
+        'i sem kezdődik úgy, hogy megittam egy jó kis kólát.',
+    'Abban az esetben, ha a lánykikérés sikerrel járt, az ifjú pár hiva' +
+        'talossá teszi kapcsolatát állam bácsi előtt is a rusztikus múz' +
+        'eum kertjében.',
+    'Ha már állam bácsi is elismerte frigyünket, ezt az Úr előtt is meg' +
+        'erősítjük.',
+    '„NEM FOG ESNI AZ ESŐ ÉS PONT!!!” – mondá a bizakodó menyasszony. V' +
+        'iszont Imi szerint nem mindig van ám igaza, úgyhogy eső esetén' +
+        ' a polgári szertartás a Polgármesteri Hivatalban lesz. Még sze' +
+        'rencse, hogy épp csak az út másik oldalára kell átmenni.',
+    'A nem-böszörményi családunk és barátaink a Debreceni Egyetem kollé' +
+        'giumában élhetik át, hogy milyen is lesz/volt/lehetett volna a' +
+        ' kolis élet. A lagzi másnapján pedig minden vendéget - legyen ' +
+        'az böszörményi vagy nem-böszörményi - várunk vissza egy kis mo' +
+        'rzsapartira. A másnapos gyomornak különösen ajánljuk a maradék' +
+        ' rántott hús elfogyasztását!'
+]
+
+var locationVar = 0;
+
+function setLocation() {
+    document.getElementById('location').innerHTML = locations[locationVar];
+    document.getElementById('locationImage').src = locationImage[locationVar];
+    document.getElementById('locationAddress').innerHTML = locationAddress[locationVar];
+    document.getElementById('locationAddress').href = locationReference[locationVar];
+    document.getElementById('locationContent').innerHTML = locationContent[locationVar];
+}
+
+function locImgReset() {
+    document.getElementById("loc0").src = "https://i.imgur.com/NEI44ix.png";
+    document.getElementById("loc1").src = "https://i.imgur.com/OdcFSON.png";
+    document.getElementById("loc2").src = "https://i.imgur.com/mWfZOu9.png";
+    document.getElementById("loc3").src = "https://i.imgur.com/P0HIxG7.png";
+    document.getElementById("loc4").src = "https://i.imgur.com/Rj6rT6i.png";
+    document.getElementById("loc5").src = "https://i.imgur.com/TNgYVZl.png";
+}
+
+function location0() {
+    locationVar = 0;
+    setLocation();
+    locImgReset();
+    document.getElementById("loc0").src = "https://i.imgur.com/W7ElmaL.png";
+}
+
+function location1() {
+    locationVar = 1;
+    setLocation();
+    locImgReset();
+    document.getElementById("loc1").src = "https://i.imgur.com/XsjShIO.png";
+}
+
+function location2() {
+    locationVar = 2;
+    setLocation();
+    locImgReset();
+    document.getElementById("loc2").src = "https://i.imgur.com/kQkSA9B.png";
+}
+
+function location3() {
+    locationVar = 3;
+    setLocation();
+    locImgReset();
+    document.getElementById("loc3").src = "https://i.imgur.com/li6c5Sr.png";
+}
+
+function location4() {
+    locationVar = 4;
+    setLocation();
+    locImgReset();
+    document.getElementById("loc4").src = "https://i.imgur.com/xtSoZZq.png";
+}
+
+function location5() {
+    locationVar = 5;
+    setLocation();
+    locImgReset();
+    document.getElementById("loc5").src = "https://i.imgur.com/lKFaham.png";
+}
+
+
+
+/* --- EXTRA --- */
+
+var points = 0;
+var counter = 0;
+
+var questions = [
+    'Ki az, aki nem szereti a család macskáját?',
+    'Ki az, aki fél a kígyóktól?',
+    'Ki mondta: nem lenne rossz a gyerek, lehetne vele mesét nézni?',
+    'Ki az, aki beleszól abba, ahogy a másik vezet?',
+    'Ki porszívózik többet?',
+    'Ki az, aki utálja a savanyúságot?',
+    'Ki hívta el először randizni a másikat?',
+    'Ki ad több puszit a másiknak?',
+    'Kinek a beceneve "Kakimajom"?',
+    'Ki az, aki nyugtatóként használja a hajszárítót?',
+    'Ki az, aki könnyen elérzékenyül?',
+    'Kihez nem lehet hozzászólni, amíg eszik?'
+]
+
+var hints = [
+    'Mert a macska mindig nyalogatja az emberek lábujját és ez Rékát egy filmre' +
+        ' emlékezteti, amikor a macskák megettek egy levágott ujjat.',
+    'De annyira, hogy még fényképen sem tud rájuk nézni, vagy rosszul van, amik' +
+        'or a szemét öccse a kezével utánozza a kígyó mozgását. És már attól ki' +
+        'rázta a hideg, hogy ezt leírta…',
+    'Bizony! Imi előbb állt készen a gyerekvállalásra.',
+    'De mindezt úgy, hogy ő évek óta nem vezet és még a jogsija is hónapok óta ' +
+        'lejárt.',
+    'Réka annyira utál porszívózni, hogy inkább megcsinál minden mást, csak por' +
+        'szívózni ne kelljen.',
+    'De olyan szinten, hogy Réka nem ehet jalapeñot a nachoshoz a moziban, mert' +
+        'az büdös, vagy Imi elvonul a másik szobába, ha Réka valami eceteset es' +
+        'zik.',
+    'Kapva a tökéletes alkalmon, Imi feltette a "Van-e már programod a hétvégér' +
+        'e?" kérdést. Réka elkezdte sorolni, de mikor meglátta Imi csalódott ar' +
+        'cát, rájött, hogy elb@szta a pillanatot, úgyhogy végül ő hívta el Imit' +
+        ' egy koncertre.',
+    'Néha őrületbe is kergeti Imit.',
+    'Réka nevezte el így Imit és akkor szokta így hívni, amikor rosszul viselke' +
+        'dik.',
+    'Ez valószínűleg a gyerekkorára vezethető vissza, mivel már kicsiként is a ' +
+        'porszívó azon végéhez bújt, ahol jön ki a meleg levegő és a porszívó m' +
+        'onoton zúgására aludt el.',
+    'Nyilván! Imi látta már őt sírni reklámokon, cuki kiskutyás videókon és még' +
+        ' horror filmeken is…',
+    'Az együttélés elején Imi kikötötte, hogy addig Réka felejtse el a lánykéré' +
+        'st, amíg meg nem tanulja, hogy arra a 10 percre hagyja békén őt, míg h' +
+        'azaér és megvacsorázik.'
+]
+
+var answers = [
+    'Réka',
+    'Réka',
+    'Imi',
+    'Réka',
+    'Imi',
+    'Imi',
+    'Réka',
+    'Réka',
+    'Imi',
+    'Imi',
+    'Réka',
+    'Imi'
+]
+
+var advises = [
+    'Gratulálunk, minden rezdülésünket ismered, ami picit félelmetes is.',
+    'Nem rossz, de még illik leülni velünk pár sörre.',
+    'Még szerencse, hogy hangos lesz a zene, a beszélgetés kellemetlen lenne.',
+    'Téged biztos, hogy meghívtak?'
+]
+
+function enableTips() {
+    document.getElementById('rekaButton').disabled = true;
+    document.getElementById('imiButton').disabled = true;
+    document.getElementById('nextQuestion').disabled = false;
+}
+
+function disableTips() {
+    document.getElementById('rekaButton').disabled = false;
+    document.getElementById('imiButton').disabled = false;
+    document.getElementById('nextQuestion').disabled = true;
+}
+
+function showResult() {
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('result').innerHTML = answers[counter];
+    document.getElementById('hint').style.display = 'block';
+    document.getElementById('hint').innerHTML = hints[counter];
+}
+
+function disableResult() {
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('hint').style.display = 'none';
+}
+
+function startGame() {
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('question').innerHTML = questions[counter];
+    document.getElementById('question').style.display = 'block';
+    document.getElementById('gameScreen').style.display = 'block';
+    document.getElementById('reward').disabled = true;
+    disableTips();
+}
+
+function moveToStartGame() {
+    document.getElementById('startScreen').style.display = 'block';
+    document.getElementById('gameScreen').style.display = 'none';
+    document.getElementById('endScreen').style.display = 'none';
+    document.getElementById('rewardScreen').style.display = 'none';
+    disableResult();
+}
+
+function nextQuestion() {
+    if (counter <= 11) {
+        document.getElementById('question').innerHTML = questions[counter];
+        disableResult();
+        disableTips();
+    } else {
+        document.getElementById('gameScreen').style.display = 'none';
+        document.getElementById('endScreen').style.display = 'block';
+        var showPoints = points + ' pontot szereztél.';
+        document.getElementById('points').innerHTML = showPoints;
+        if (points >= 10) {
+            document.getElementById('advise').innerHTML = advises[0];
+            document.getElementById('reward').disabled = false;
+        } else if (points >= 6 && points < 10) {
+            document.getElementById('advise').innerHTML = advises[1];
+            document.getElementById('reward').disabled = false;
+        } else if (points >= 2 && points < 6) {
+            document.getElementById('advise').innerHTML = advises[2];
+        } else {
+            document.getElementById('advise').innerHTML = advises[3];
+        }
+        points = 0;
+        counter = 0;
+    }
+}
+
+function answerReka() {
+    showResult();
+    enableTips();
+    if (answers[counter] == 'Réka') {
+        points++;
+        counter++;
+    } else {
+        counter++;
+    }
+}
+
+function answerImi() {
+    showResult();
+    enableTips();
+    if (answers[counter] == 'Imi') {
+        points++;
+        counter++;
+    } else {
+        counter++;
+    }
+}
+
+function showReward() {
+    document.getElementById('endScreen').style.display = 'none';
+    document.getElementById('rewardScreen').style.display = 'block';
+}
+
+var rewardImages = [
+    'https://i.imgur.com/xHpaOxs.jpg',
+    'https://i.imgur.com/Wg6bQf2.jpg',
+    'https://i.imgur.com/nLRBNv6.jpg',
+    'https://i.imgur.com/LQih4zI.jpg',
+    'https://i.imgur.com/3fVniIE.jpg'
+]
+
+var rewardCounter = 0;
+
+function rewardNext() {
+    if (rewardCounter <= 3) {
+        rewardCounter++;
+        document.getElementById('rewardImage').src = rewardImages[rewardCounter];
+    } else
+        rewardCounter = 0;
+        document.getElementById('rewardImage').src = rewardImages[rewardCounter];
+}
+
+function rewardBack() {
+    if (rewardCounter >= 1) {
+        rewardCounter--;
+        document.getElementById('rewardImage').src = rewardImages[rewardCounter];
+    } else
+        rewardCounter = 4;
+        document.getElementById('rewardImage').src = rewardImages[rewardCounter];
+}
+
+/* --- COUNTDOWN --- */
+
+
+// DATE SET
+var countDownDate = new Date('Aug 25, 2018 14:00:00').getTime();
+
+
+// COUNT DOWN UPDATE
+var x = setInterval(function() {
+
+    // GET TODAY
+    var now = new Date().getTime();
+
+    // FIND DISTANCE
+    var distance = countDownDate - now;
+
+    // CALCULATE TIME
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // DISPLAY RESULT
+    document.getElementById('cdDays').innerHTML = days;
+    document.getElementById('cdHours').innerHTML = hours;
+    document.getElementById('cdMinutes').innerHTML = minutes;
+    document.getElementById('cdSeconds').innerHTML = seconds;
+
+    // AFTER FINISHED
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById('countDownSection').style.display = 'none';
+        document.getElementById('countDownFinished').style.display = 'block';
+    }
+
+}, 1000);
+
+</script>
+</body>
+
+</html>
