@@ -1182,7 +1182,7 @@ b {
         </table>
       </div>
       <figure id="countDownFinished">
-        <iframe id="startGandalf" width="854" height="480" src="https://www.youtube.com/embed/Sagg08DrO5U?autoplay=0"></iframe>
+        <iframe id="startGandalf" width="854" height="480" src=""></iframe>
       </figure>
       <div id="contactSection">
         <p id="contact">Kérdés esetén fordulj hozzánk bizalommal:</p>
@@ -1763,6 +1763,7 @@ var x = setInterval(function() {
         clearInterval(x);
         document.getElementById('countDownSection').style.display = 'none';
         document.getElementById('countDownFinished').style.display = 'block';
+	document.getElementById('startGandalf').src = 'https://www.youtube.com/embed/Sagg08DrO5U?autoplay=0'
     }
 
 }, 1000);
